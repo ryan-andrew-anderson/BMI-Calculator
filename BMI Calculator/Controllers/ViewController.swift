@@ -31,9 +31,11 @@ class ViewController: UIViewController {
     @IBAction func calculatePressed(_ sender: UIButton) {
         let height = heightSlider.value
         let weight = weightSlider.value
-        print(weight / (height * height))
         bmi = Double(weight / pow(height, 2))
-        print(bmi)
+        
+        let secoundVC = BMIViewController()
+        
+        self.present(secoundVC, animated: true, completion: nil)
     }
 }
 
