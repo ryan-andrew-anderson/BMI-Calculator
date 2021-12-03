@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         bmi = Double(weight / pow(height, 2))
         
         let secoundVC = BMIViewController()
+        secoundVC.bmiValue = String(format: "%.1f", bmi)
         
         self.present(secoundVC, animated: true, completion: nil)
     }
