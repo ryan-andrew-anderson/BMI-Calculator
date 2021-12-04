@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculate View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculateViewController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Q8-sj-ovt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,6 +108,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="calculatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y1T-Ei-1uW"/>
+                                            <segue destination="lkq-xS-Cin" kind="show" identifier="goToResult" id="ipy-cl-MgY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -126,22 +127,22 @@
                             <constraint firstAttribute="trailing" secondItem="DpU-Gs-T27" secondAttribute="trailing" id="wXv-E8-Ye0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="woX-bF-m3f"/>
                     <connections>
                         <outlet property="heightLabel" destination="Xcz-1j-2c9" id="V11-Yr-dmD"/>
                         <outlet property="heightSlider" destination="Pky-qY-oVp" id="PEl-AN-m66"/>
                         <outlet property="weightLabel" destination="LTF-aL-8qu" id="FKY-bv-mon"/>
                         <outlet property="weightSlider" destination="s2X-C5-Zcz" id="XpA-ex-T1D"/>
-                        <segue destination="lkq-xS-Cin" kind="show" identifier="showBMI" id="dFM-2G-aSg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="138"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="QA2-bS-5c1">
             <objects>
-                <viewController id="lkq-xS-Cin" customClass="BMIViewController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lkq-xS-Cin" customClass="ResultViewController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A2l-zF-O8p">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,6 +189,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="recalculatePressed:" destination="lkq-xS-Cin" eventType="touchUpInside" id="gEq-Or-ABg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wMZ-LG-Y4P"/>
@@ -205,10 +209,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="urs-oL-he5"/>
+                    <connections>
+                        <outlet property="adviceLabel" destination="9IV-CT-mxw" id="XJu-Eu-NTH"/>
+                        <outlet property="resultsLabel" destination="VU9-2W-Sd5" id="Pl8-VB-pr8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fn-rV-g4l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="138"/>
+            <point key="canvasLocation" x="1135" y="130"/>
         </scene>
     </scenes>
     <resources>
