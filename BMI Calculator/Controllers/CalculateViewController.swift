@@ -22,11 +22,11 @@ class CalculateViewController: UIViewController {
     }
     
     @IBAction func heightSliderChanged(_ sender: UISlider) {
-        heightLabel.text = brain.getHeightValue(sender.value)
+        heightLabel.text = brain.getStringFromFloat(sender.value)
     }
     
     @IBAction func weighSliderChanged(_ sender: UISlider) {
-        weightLabel.text = brain.getWeightValue(sender.value)
+        weightLabel.text = brain.getStringFromFloat(sender.value)
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
@@ -37,7 +37,10 @@ class CalculateViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultViewController
-            destinationVC.bmiValue = brain.getString(brain.bmi)
+            
+            destinationVC.bmiValue = brain.getBMIString()
+            destinationVC.advice = brain.getAdvice()
+            destinationVC.color = brain.getColor()
         }
     }
 }
